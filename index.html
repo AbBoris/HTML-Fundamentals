@@ -3,28 +3,131 @@
 <head>
 	<meta charset="utf-8">
 	<title>HTML Fundamentals</title>
+	<meta name="author" content="Boris Abdulov">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<form name="personal-data">
+	<form name="personal-data" oninput="salary.value=salaryInput.value">
 		<fieldset>
 			<legend>Личные данные</legend>
 			<table>
 				<tr>
 					<td><label for="firstName">Имя</label></td>
-					<td><input type="text" id="firstName" name="first-name"></td>
+					<td><input type="text" id="firstName" name="first-name" required></td>
 				</tr>
 
 				<tr>
 					<td><label for="lastName">Фамилия</label></td>
-					<td><input type="text" id="lastName" name="last-name"></td>
+					<td><input type="text" id="lastName" name="last-name" required></td>
 				</tr>
 
 				<tr>
 					<td><label for="middleName">Отчество</label></td>
-					<td><input type="text" id="middleName" name="middle-name"></td>
+					<td><input type="text" id="middleName" name="middle-name" required></td>
+				</tr>
+
+				<tr>
+					<td><label for="sex">Пол</label></td>
+					<td>
+						<input type="radio" id="sex" name="sex" value="1" required>мужской
+						<input type="radio" name="sex" value="2">женский
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for="age">Возраст</label></td>
+					<td><input type="number" id="age" name="age" min="18" value="18" required></td>
+				</tr>
+
+				<tr>
+					<td><label for="location">Страна проживания</label></td>
+					<td>
+						<input list="country" id="location" name="location" required>
+						<datalist id="country">
+							<option value="Россия">a</option>
+							<option value="Беларусь">b</option>
+							<option value="Украина">c</option>
+						</datalist>
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for="city">Город</label></td>
+					<td>
+						<input type="checkbox" name="city" id="city" value="ryazan" required>Рязань
+						<input type="checkbox" name="city" value="moscow">Москва
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for="photo">Фото</label></td>
+					<td><input type="file" name="img" id="photo" accept="image/jpeg,image/png" required></td>
 				</tr>
 			</table>
 		</fieldset>
+		<fieldset>
+			<table>
+				<tr>
+					<td  valign="bottom"><label for="profession">Профессия</label></td>
+					<td>
+						<select name="profession" id="profession" size="8" required>
+							<optgroup label="Информационные технологии и интернет">
+								<option value="1">Web мастер</option>
+								<option value="2">Администратор баз данных</option>
+								<option value="3">Системы автоматизированного проектирования</option>
+							</optgroup>
+							<optgroup label="Бухгалтерия, управленческий учет, финансы предприятия">
+								<option value="4">Планово-экономическое управление</option>
+								<option value="5">Руководство бухгалтерией</option>
+								<option value="6">Бюджетирование и планирование</option>
+							</optgroup>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for="salaryInput">Зарплата</label></td>
+					<td>
+						<input type="range" id="salaryInput" name="salaryInput" min="0" max="100000" step="1000" required>
+						<output name="salary" for="salaryInput"></output>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="2">
+						<textarea name="Text1" cols="40" rows="10" placeholder="Расскажите немного о себе..." required></textarea>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Контактная информация</legend>
+			<table>
+				<tr>
+					<td><label for="site">Сайт</label></td>
+					<td><input type="url" id="site" required></td>
+				</tr>
+				<tr>
+					<td><label for="email">Email</label></td>
+					<td><input type="email" id="email" required></td></td>
+				</tr>
+				<tr>
+					<td><label for="phone">Телефон</label></td>
+					<td><input type="tel" id="phone" required></td>
+				</tr>
+			</table>
+		</fieldset>
+		<table>
+			<tr>
+				<td><label for="password">Пароль</label></td>
+				<td><input type="password" id="password" required></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="Отправить"></td>
+				<td><input type="reset" value="Очистить"></td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>
